@@ -1,0 +1,69 @@
+@startuml
+
+abstract class Hand <<abstract>> {
+    + <<abstract>> playAgainst (Hand other): Hand
+    + <<abstract>> playAgainstPaper (Paper paper): Hand
+    + <<abstract>> playAgainstRock (Rock rock): Hand
+    + <<abstract>> playAgainstScissors (Scissors scissors): Hand
+    + <<abstract>> playAgainstSpock (Spock spock): Hand
+    + <<abstract>> playAgainstLizard (Lizard lizard): Hand
+}
+
+
+class Paper {
+    + playAgainst (Hand other): Hand
+    + playAgainstPaper (Paper paper): null
+    + playAgainstScissors (Scissors scissors): Scissors
+    + playAgainstRock (Rock rock): Paper
+    + playAgainstSpock (Spock spock): Paper
+    + playAgainstLizard (Lizard lizard): Lizard
+}
+
+
+class Rock {
+    + playAgainst (Hand other): Hand
+    + playAgainstPaper (Paper paper): Paper
+    + playAgainstScissors (Scissors scissors): Rock
+    + playAgainstRock (Rock rock): null
+    + playAgainstSpock (Spock spock): Spock
+    + playAgainstLizard (Lizard lizard): Rock
+}
+
+
+class Scissors {
+    + playAgainst (Hand other): Hand
+    + playAgainstPaper (Paper paper): Scissors
+    + playAgainstScissors (Scissors scissors): null
+    + playAgainstRock (Rock rock): Rock
+    + playAgainstSpock (Spock spock): Spock
+    + playAgainstLizard (Lizard lizard): Scissors
+}
+
+
+class Spock {
+    + playAgainst (Hand other): Hand
+    + playAgainstPaper (Paper paper): Paper
+    + playAgainstScissors (Scissors scissors): Spock
+    + playAgainstRock (Rock rock): Spock
+    + playAgainstSpock (Spock spock): null
+    + playAgainstLizard (Lizard lizard): Lizard
+}
+
+
+class Lizard {
+    + playAgainst (Hand other): Hand
+    + playAgainstPaper (Paper paper): Lizard
+    + playAgainstScissors (Scissors scissors): Scissors
+    + playAgainstRock (Rock rock): Rock
+    + playAgainstSpock (Spock spock): Lizard
+    + playAgainstLizard (Lizard lizard): null
+}
+
+
+class Paper extends Hand
+class Rock extends Hand
+class Scissors extends Hand
+class Spock extends Hand
+class Lizard extends Hand
+
+@enduml

@@ -1,0 +1,32 @@
+class TweetTest {
+
+    @Test
+    public void tweetNuloLanzaExcepcion() {
+        assertThrows(IllegalArgumentException.class, () -> new Tweet(null));
+    }
+
+    @Test
+    public void tweetVacioLanzaExcepcion() {
+        assertThrows(IllegalArgumentException.class, () -> new Tweet(""));
+    }
+
+    
+    @Test
+    public void tweetUnCaracterValido() {
+        Tweet tweet = new Tweet("a");
+        assertEquals("a", tweet.getText());
+    }
+
+
+    @Test
+    public void tweet280CaracteresValido() {
+        Tweet tweet = new Tweet ("a".repeat(280));
+        assertEquals("a".repeat(280), tweet.getText());
+    }
+
+
+    @Test
+    public void tweet281CaracteresInvalido() {
+        assertThrows(IllegalArgumentException.class, () -> new Tweet("a".repeat(281)));
+    }
+}
