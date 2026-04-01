@@ -1,4 +1,4 @@
-public class CharRing extends Object {
+public class CharRing {
     char[] source;
     int idx;
 
