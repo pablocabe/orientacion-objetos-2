@@ -190,3 +190,4 @@
 2026-03-20 15:17:06,900 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\repositorios\orientacion-objetos-2\ejercicio02\src\test\resources
 2026-03-20 15:17:07,940 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\repositorios\orientacion-objetos-2\ejercicio02\src\main\resources
 2026-03-20 15:17:07,941 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\repositorios\orientacion-objetos-2\ejercicio02\src\test\resources
+2026-04-01 12:00:04,895 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
