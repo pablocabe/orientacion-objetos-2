@@ -1,9 +1,5 @@
 package ar.edu.unlp.info.oo2.refactoring;
 
-public class Juego {
-    // ......
-}
-
 public class Jugador {
     private String nombre;
     private String apellido;
