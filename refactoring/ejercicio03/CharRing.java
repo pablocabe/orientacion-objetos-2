@@ -1,4 +1,5 @@
 public class CharRing {
+
     private char[] source;
     private int idx;
 
@@ -12,6 +13,4 @@ public class CharRing {
             idx = 0;
         return source[idx++];
     }
-
 }
-
