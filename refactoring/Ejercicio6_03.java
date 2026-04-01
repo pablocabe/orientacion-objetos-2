@@ -1,4 +1,4 @@
-// Retorna los últimos N posts que no pertenecen al usuario user
+// los últimos N posts que no pertenecen al usuario user
 
 public List<Post> ultimosPosts(Usuario user, int cantidad) {
     List<Post> postsOtrosUsuarios = new ArrayList<Post>();
