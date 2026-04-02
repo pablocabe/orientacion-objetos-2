@@ -4,10 +4,11 @@ public abstract class Empleado {
     private String nombre;
     private String apellido;
     protected double sueldoBasico = 0;
+    private static final double porcentajeDescuento = 0.13;
 
-    protected abstract double calcularSueldoTotal();
+    protected abstract double calcularSueldo();
 
     public double calcularDescuento() {
-        return this.sueldoBasico * 0.13;
+        return this.sueldoBasico * porcentajeDescuento;
     }
 }
