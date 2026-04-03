@@ -1,17 +1,11 @@
 package ar.edu.unlp.info.oo2.refactoring;
 
-public class CharRing {
-    private char[] source;
-    private int idx;
+import java.util.List;
 
-    public CharRing(String src) {
-        source = src.toCharArray();
-        idx = 0;
+public class CharRing extends Ring<Character>{
+
+    public CharRing(List<Character> src) {
+        super(src);
     }
 
-    public char next() {
-        if (idx >= source.length)
-            idx = 0;
-        return source[idx++];
-    }
 }

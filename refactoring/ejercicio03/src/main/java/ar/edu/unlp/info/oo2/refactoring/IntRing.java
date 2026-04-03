@@ -1,17 +1,11 @@
 package ar.edu.unlp.info.oo2.refactoring;
 
-public class IntRing {
-    private int[] source;
-    private int idx;
+import java.util.List;
 
-    public IntRing(int[] src) {
-        source = src;
-        idx = 0;
+public class IntRing extends Ring<Integer>{
+
+    public IntRing(List<Integer> src) {
+        super(src);
     }
 
-    public int next() {
-        if (idx >= source.length)
-            idx = 0;
-        return source[idx++];
-    }
 }
