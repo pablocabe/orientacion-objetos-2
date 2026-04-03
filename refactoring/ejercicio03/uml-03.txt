@@ -1,0 +1,24 @@
+@startuml
+
+abstract class Ring<T>{
+    - idx: int;
+    - source: List<T>
+    
+    + <<create>> Ring (source: List<T>): Ring
+    + next (): T
+}
+
+
+class IntRing {
+    + <<create>> IntRing (source: List<Integer>): IntRing
+}
+
+
+class CharRing {
+    + <<create>> CharRing (source: List<Character>): CharRing
+}
+
+class IntRing extends Ring
+class CharRing extends Ring
+
+@enduml
