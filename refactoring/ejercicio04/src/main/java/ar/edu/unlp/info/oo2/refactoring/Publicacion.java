@@ -13,12 +13,12 @@ public class Publicacion {
     
     public void darDislike() { likes--; }
 
-    private int procesar() {
+    private int impacto() {
         return likes * 3;
     }
 
-    public int calcular() {
-        return procesar() * 10;
+    public int alcance() {
+        return impacto() * 10;
     }
 }
 

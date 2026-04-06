@@ -10,15 +10,15 @@ public class Perfil {
         this.publicaciones = new ArrayList<>();
     }
 
-    public void agregarPublicacion(Publicacion p) { publicaciones.add(p); }
+    public void agregarPublicacion(Publicacion publicacion) { publicaciones.add(publicacion); }
     
     private int bonus() { return verificado ? 2 : 1; }
 
     private int alcanceDePublicaciones() {
-        return publicaciones.stream().mapToInt(p -> p.calcular()).sum();
+        return publicaciones.stream().mapToInt(p -> p.alcance()).sum();
     }
 
-    public int calcular() {
+    public int alcance() {
         return alcanceDePublicaciones() * bonus();
     }
 }
