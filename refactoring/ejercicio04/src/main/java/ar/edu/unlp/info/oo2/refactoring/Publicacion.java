@@ -21,4 +21,3 @@ public class Publicacion {
         return impacto() * 10;
     }
 }
-
