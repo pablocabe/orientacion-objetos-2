@@ -1,4 +1,4 @@
-package ar.edu.info.unlp.refactoring.ejercicio1;
+package ar.edu.unlp.info.oo2.refactoring;
 
 import static org.junit.jupiter.api.Assertions.*;
 

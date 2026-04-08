@@ -1,4 +1,4 @@
-package ar.edu.info.unlp.refactoring.ejercicio1;
+package ar.edu.unlp.info.oo2.refactoring;
 
 public class Hotel {
     private double nightPrice;
@@ -15,5 +15,9 @@ public class Hotel {
 
     public double discountRate() {
         return this.discountRate;
+    }
+
+    public double discountedNightPrice() {
+        return this.nightPrice() * this.discountRate();
     }
 }

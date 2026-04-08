@@ -1,4 +1,4 @@
-package ar.edu.info.unlp.refactoring.ejercicio1;
+package ar.edu.unlp.info.oo2.refactoring;
 
 public class Company {
     private final double price;
@@ -15,5 +15,9 @@ public class Company {
 
     public double promotionRate() {
         return this.promotionRate;
+    }
+
+    public double promotionalPrice() {
+        return this.price() * this.promotionRate();
     }
 }

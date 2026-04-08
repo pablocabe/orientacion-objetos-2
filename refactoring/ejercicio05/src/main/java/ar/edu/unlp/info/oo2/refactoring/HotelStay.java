@@ -1,35 +1,26 @@
-package ar.edu.info.unlp.refactoring.ejercicio1;
+package ar.edu.unlp.info.oo2.refactoring;
 
 import java.time.LocalDate;
 
 public class HotelStay extends Product {
-    private double cost;
-    private TimePeriod timePeriod;
+    private double quote;
     private Hotel hotel;
 
-    public HotelStay(double cost, TimePeriod timePeriod, Hotel hotel) {
-        this.cost = cost;
-        this.timePeriod = timePeriod;
+    public HotelStay(double quote, TimePeriod timePeriod, Hotel hotel) {
+        super(timePeriod);
+        this.quote = quote;
         this.hotel = hotel;
     }
 
-    public LocalDate startDate() {
-        return this.timePeriod.start();
-    }
-
-    public LocalDate endDate() {
-        return this.timePeriod.end();
-    }
-
     public double priceFactor() {
-        return this.cost / this.price();
+        return this.quote / this.price();
     }
 
     public double price() {
-        return this.timePeriod.duration() * this.hotel.nightPrice() * this.hotel.discountRate();
+        return this.getDuration() * this.hotel.discountedNightPrice();
     }
 
-    public double getCost() {
-        return this.cost;
+    public double getQuote() {
+        return this.quote;
     }
 }
