@@ -8,4 +8,15 @@ abstract class Etiqueta {
         this.nombreProducto = nombre;
         this.precio = precio;
     }
+
+    public void generar() {
+        this.imprimirEncabezado();
+        System.out.println("Producto: " + this.nombreProducto);
+        this.imprimirPrecios();
+        this.imprimirSeparador();
+    }
+
+    protected abstract void imprimirEncabezado();
+    protected abstract void imprimirPrecios();
+    protected abstract void imprimirSeparador();
 }

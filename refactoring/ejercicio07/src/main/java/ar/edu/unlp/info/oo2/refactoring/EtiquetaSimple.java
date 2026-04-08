@@ -5,10 +5,18 @@ class EtiquetaSimple extends Etiqueta {
         super(nombre, precio);
     }
 
-    public void generar() {
+    @Override
+    public void imprimirEncabezado() {
         System.out.println("--- ETIQUETA BÁSICA ---");
-        System.out.println("Producto: " + nombreProducto);
-        System.out.println("Precio: $" + precio);
+    }
+
+    @Override
+    public void imprimirPrecios() {
+        System.out.println("Precio: $" + this.precio);
+    }
+
+    @Override
+    public void imprimirSeparador() {
         System.out.println("-----------------------");
     }
 }

@@ -5,11 +5,19 @@ class EtiquetaDetalle extends Etiqueta {
         super(nombre, precio);
     }
 
-    public void generar() {
+    @Override
+    public void imprimirEncabezado() {
         System.out.println("--- ETIQUETA DETALLE ---");
-        System.out.println("Producto: " + nombreProducto);
-        System.out.println("Precio sin imp.: $" + (precio * 0.79));
-        System.out.println("Precio final: $" + precio);
+    }
+
+    @Override
+    public void imprimirPrecios() {
+        System.out.println("Precio sin imp.: $" + (this.precio * 0.79));
+        System.out.println("Precio final: $" + this.precio);
+    }
+
+    @Override
+    public void imprimirSeparador() {
         System.out.println("------------------------");
     }
 }
