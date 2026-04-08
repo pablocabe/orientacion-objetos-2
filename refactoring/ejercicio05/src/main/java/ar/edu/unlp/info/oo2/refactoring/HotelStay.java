@@ -1,7 +1,5 @@
 package ar.edu.unlp.info.oo2.refactoring;
 
-import java.time.LocalDate;
-
 public class HotelStay extends Product {
     private double quote;
     private Hotel hotel;
