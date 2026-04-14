@@ -1,50 +1,43 @@
 @startuml
 
-class UserRepository {
-    + <<create>> UserRepository (): UserRepository
-    + addUser (user: User)
-    + removeUser (screenName: String)
-    - existsUser (screenName: String): Boolean
-    + getUsers (): User [*]
+class Biblioteca {
+    + <<create>> Biblioteca (): Biblioteca
+    + agregarSocio (socio: Socio)
+    + exportarSocio (): String
+    + getExporter (): Exporter
+    + setExporter (exporter: Exporter): Exporter
 }
 
 
-class User {
-    - screenName: String
+class Socio {
+    - nombre: String
+    - legajo: String
+    - email: String
 
-    + <<create>> User (screenName: String): User
-    + addTweet (text: String)
-    + addRetweet (originalTweet: Tweet)
-    + getPosts (): Post [*]
-    + getScreenName (): String
+    + <<create>> Socio (nombre: String, email: String, legajo: String): Socio
+    + getNombre (): String
+    + setNombre (nombre: String)
+    + getEmail (): String
+    + setEmail (email: String)
+    + getLegajo (): String
+    + setLegajo (legajo: String)
 }
 
 
-abstract class Post <<abstract>> {
-    + <<abstract>> getText (): String
+interface Exporter {
+    + exportar (Socio[*]): String
 }
 
 
-class Tweet {
-    -text: String
-
-    + <<create>> Tweet (text: String): Tweet
-    + getText (): String
-    - cumpleCaracteres (text: String): Boolean
+class VoorheesExporter {
+    - exportar (socio: Socio): String
+    + exportar (socios: Socio[*]): String
 }
 
 
-class Retweet {
-    + <<create>> Retweet (originalTweet: Tweet): Retweet
-    + getText (): String
+Biblioteca --> Socio : " - socios (0..*)"
+Biblioteca --> Exporter : " - exporter"
 
-}
-
-UserRepository --> User : " - usuarios (0..*)"
-User *--> Post : " - posts (0..*)"
-Retweet --> Tweet : " - originalTweet "
-
-class Tweet extends Post
-class Retweet extends Post
+class VoorheesExporter implements Exporter
 
 @enduml
