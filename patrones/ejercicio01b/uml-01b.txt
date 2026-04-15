@@ -1,0 +1,71 @@
+@startuml
+
+class Biblioteca <<CLIENT>>{
+    + <<create>> Biblioteca (): Biblioteca
+    + agregarSocio (socio: Socio)
+    + exportarSocio (): String
+    + getExporter (): Exporter
+    + setExporter (exporter: Exporter): Exporter
+}
+
+
+class Socio {
+    - nombre: String
+    - legajo: String
+    - email: String
+
+    + <<create>> Socio (nombre: String, email: String, legajo: String): Socio
+    + getNombre (): String
+    + setNombre (nombre: String)
+    + getEmail (): String
+    + setEmail (email: String)
+    + getLegajo (): String
+    + setLegajo (legajo: String)
+}
+
+
+interface Exporter <<TARGET>>{
+    + exportar (socios: Socio[*]): String
+}
+
+
+class VoorheesExporter {
+    - exportar (socio: Socio): String
+    + exportar (socios: Socio[*]): String
+}
+
+
+class JSONSimpleAdapter <<ADAPTER>> {
+    + <<create>> JSONSimpleAdapter (): JSONSimpleAdapter
+    + exportar (socios: Socio[*]): String
+    - crearSocio (socio: Socio): JSONObject
+}
+
+
+class JacksonAdapter <<ADAPATER>> {
+    + <<create>> JacksonAdapter (): JacksonAdapter
+    + exportar (socios: Socio[*]): String
+}
+
+
+class JSONArray <<ADAPTEE>> {}
+
+
+class JSONObject <<ADAPTEE>> {}
+
+
+class ObjectMapper <<ADAPTEE>> {}
+
+
+Biblioteca --> Socio : " - socios (0..*)"
+Biblioteca --> Exporter : " - exporter"
+JSONSimpleAdapter --> " 1 " JSONArray
+JSONSimpleAdapter --> " 1 " JSONObject
+JacksonAdapter --> " 1 " ObjectMapper
+
+
+class VoorheesExporter implements Exporter
+class JSONSimpleAdapter implements Exporter
+class JacksonAdapter implements Exporter
+
+@enduml
