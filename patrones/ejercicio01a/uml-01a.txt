@@ -25,7 +25,7 @@ class Socio {
 
 
 interface Exporter {
-    + exportar (Socio[*]): String
+    + exportar (socios: Socio[*]): String
 }
 
 
