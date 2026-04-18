@@ -5,8 +5,6 @@ public abstract class Empleado {
     private static final double VALOR_PORCENTAJE_BASICO = 0.13;
     private static final double VALOR_PORCENTAJE_ADICIONAL = 0.05;
 
-    public Empleado() {}
-
     public double getSueldo() {
         return this.getSueldoBasico() + this.getAdicional() - this.getDescuentoTotal();
     }
