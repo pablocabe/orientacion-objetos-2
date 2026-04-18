@@ -1,36 +1,58 @@
 @startuml
 
 abstract class Empleado <<abstract>> {
+    - {static} VALOR_PORCENTAJE_BASICO: Real = 0.13
+    - {static} VALOR_PORCENTAJE_ADICIONAL: Real = 0.05
+    
+    + <<create>> Empleado (): Empleado
     + getSueldo (): Real
-    # <<abstract>> getSueldoBasico (): Real
-    # <<abstract>> getAdicional (): Real
-    # getDescuento (): Real
+    # {abstract} <<abstract>> getSueldoBasico (): Real
+    # {abstract} <<abstract>> getAdicional (): Real
+    - getDescuentoTotal (): Real
+    - getDescuentoBasico (): Real
+    - getDescuentoAdicional (): Real
 }
 
 
 class EmpleadoTemporario extends Empleado {
+    - {static} VALOR_SUELDO_BASE: Real = 20000
+    - {static} VALOR_HORA: Real = 300
+    - {static} VALOR_CASADO: Real = 5000
+    - {static} VALOR_HIJO: Real = 2000
+
     - cantHorasTrabajadas: Integer
     - cantHijos: Integer
     - isCasado: Boolean
-
+    
+    + <<create>> EmpleadoTemporario (cantHorasTrabajadas: Integer, cantHijos: Integer, isCasado: Boolean): EmpleadoTemporario
     # getSueldoBasico (): Real
     # getAdicional (): Real
 }
 
 
 class EmpleadoPasante extends Empleado {
+    - {static} VALOR_SUELDO_BASE: Real = 20000
+    - {static} VALOR_EXAMEN: Real = 2000
+
     - cantExamenes: Integer
 
+    + <<create>> EmpleadoPasante (cantExamenes: Integer): EmpleadoPasante
     # getSueldoBasico (): Real
     # getAdicional (): Real
 }
 
 
 class EmpleadoPlanta extends Empleado {
+    - {static} VALOR_SUELDO_BASE: Real = 50000
+    - {static} VALOR_ANIO: Real = 2000
+    - {static} VALOR_CASADO: Real = 5000
+    - {static} VALOR_HIJO: Real = 2000
+
     - cantAniosAntiguedad: Integer
     - cantHijos: Integer
     - isCasado: Boolean
 
+    + <<create>> EmpleadoPlanta (cantAniosAntiguedad: Integer, cantHijos: Integer, isCasado: Boolean): EmpleadoPlanta
     # getSueldoBasico (): Real
     # getAdicional (): Real
 }
