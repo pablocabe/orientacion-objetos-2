@@ -1,0 +1,47 @@
+@startuml
+
+class MediaPlayer <<CLIENT>> {
+    + <<create>> MediaPlayer(): MediaPlayer
+    + addMedia(media: Media)
+    + play()
+}
+
+
+interface Media <<TARGET>> {
+    + play()
+}
+
+
+class Audio {
+    + <<create>> Audio(): Audio
+    + play()
+}
+
+
+class VideoFile {
+    + <<create>> VideoFile(): VideoFile
+    + play()
+}
+
+
+class VideoStreamAdapter <<ADAPTER>> {
+    + <<create>> VideoStreamAdapter(videoStream: VideoStream): VideoStreamAdapter
+    + play()
+}
+
+
+class VideoStream <<ADAPTEE>> {
+    + <<create>> VideoStream(): VideoStream
+    + reproduce()
+}
+
+
+MediaPlayer --> Media : " - media (0..*)"
+VideoStreamAdapter --> " 1 " VideoStream
+
+
+class Audio implements Media
+class VideoFile implements Media
+class VideoStreamAdapter implements Media
+
+@enduml

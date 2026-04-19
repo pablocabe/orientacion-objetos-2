@@ -1,0 +1,30 @@
+@startuml
+
+class MediaPlayer {
+    + play ()
+}
+
+
+class Media {
+    + play ()
+}
+
+
+class Audio extends Media {
+    + play ()
+}
+
+
+class VideoFile extends Media {
+    + play ()
+}
+
+
+class VideoStream {
+    + reproduce ()
+}
+
+
+MediaPlayer --> Media : " - media (0..*)"
+
+@enduml

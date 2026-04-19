@@ -24,7 +24,7 @@ class Socio {
 }
 
 
-interface Exporter <<TARGET>>{
+interface Exporter <<TARGET>> {
     + exportar (socios: Socio[*]): String
 }
 
