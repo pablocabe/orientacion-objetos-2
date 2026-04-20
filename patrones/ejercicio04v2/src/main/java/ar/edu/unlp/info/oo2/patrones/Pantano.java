@@ -1,49 +1,39 @@
 package ar.edu.unlp.info.oo2.patrones;
 
-public class Agua implements Topografia {
-	
-    public Agua() {
-        // No necesita estado interno
-    }
-	
+public class Pantano implements Topografia {
+
     @Override
     public double proporcionAgua() {
-        return 1.0;
+        return 0.7;
     }
 
     @Override
     public double proporcionTierra() {
-        return 0.0;
+        return 0.3;
     }
 
     @Override
     public boolean igual(Topografia otra) {
-        // 2. Comienzo del Doble Despacho: Me presento como "Agua" (this)
-        return otra.esIgualAAgua(this);
+        return otra.esIgualAPantano(this);
     }
-
-    // --- Implementación de los métodos de ayuda del Doble Despacho ---
 
     @Override
     public boolean esIgualAAgua(Agua agua) {
-        // Una Agua SIEMPRE es igual a otra Agua. No hay valores que comparar.
-        return true; 
+        return false;
     }
 
     @Override
     public boolean esIgualATierra(Tierra tierra) {
-        // Una Agua NUNCA es igual a una Tierra
         return false;
     }
 
     @Override
     public boolean esIgualAPantano(Pantano pantano) {
-        return false;
+        return true;
     }
 
     @Override
     public boolean esIgualAMixta(Mixta mixta) {
-        // Una Agua NUNCA es igual a una Mixta estructuralmente
         return false;
     }
 

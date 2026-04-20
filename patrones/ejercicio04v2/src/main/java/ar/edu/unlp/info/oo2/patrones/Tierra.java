@@ -37,6 +37,11 @@ public class Tierra implements Topografia {
     }
 
     @Override
+    public boolean esIgualAPantano(Pantano pantano) {
+        return false;
+    }
+
+    @Override
     public boolean esIgualAMixta(Mixta mixta) {
         // Una Tierra NUNCA es igual a una Mixta
         return false;

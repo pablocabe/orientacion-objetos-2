@@ -10,9 +10,10 @@ public interface Topografia {
     
     // --- Métodos "detrás de escena" para el Doble Despacho (Obligatorios en la interfaz) ---
     // Estos métodos se consideran detalles de implementación del patrón.
-    boolean esIgualAAgua(Agua a);
-    boolean esIgualATierra(Tierra t);
-    boolean esIgualAMixta(Mixta m);
+    boolean esIgualAAgua(Agua agua);
+    boolean esIgualATierra(Tierra tierra);
+    boolean esIgualAPantano(Pantano pantano);
+    boolean esIgualAMixta(Mixta mixta);
 
     // El equals estándar de Java
     boolean equals(Object objeto);

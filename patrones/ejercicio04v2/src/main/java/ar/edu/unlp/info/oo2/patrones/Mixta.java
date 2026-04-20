@@ -45,6 +45,11 @@ public class Mixta implements Topografia {
     }
 
     @Override
+    public boolean esIgualAPantano(Pantano pantano) {
+        return false;
+    }
+
+    @Override
     public boolean esIgualAMixta(Mixta mixta) {
         // Si llegaron hasta acá, ambas son Mixtas. Comparamos sus partes.
         // La lista invocará el equals() de cada Topografía individualmente,

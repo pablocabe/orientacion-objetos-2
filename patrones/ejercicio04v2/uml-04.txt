@@ -2,10 +2,11 @@
 
 interface Topografia <<COMPONENT>> {
     + proporcionAgua(): Real
-    + propocionTierra(): Real
+    + proporcionTierra(): Real
     + igual(otra: Topografia): Boolean
     + esIgualAAgua(agua: Agua): Boolean
     + esIgualATierra(tierra: Tierra): Boolean
+    + esIgualAPantano(pantano: Pantano): Boolean
     + esIgualAMixta(mixta: Mixta): Boolean
     + equals(objeto: Object): Boolean
 }
@@ -14,10 +15,11 @@ interface Topografia <<COMPONENT>> {
 class Agua <<LEAF>> {
     + <<create>> Agua(): Agua
     + proporcionAgua(): Real
-    + propocionTierra(): Real
+    + proporcionTierra(): Real
     + igual(otra: Topografia): Boolean
     + esIgualAAgua(agua: Agua): Boolean
     + esIgualATierra(tierra: Tierra): Boolean
+    + esIgualAPantano(pantano: Pantano): Boolean
     + esIgualAMixta(mixta: Mixta): Boolean
     + equals(objeto: Object): Boolean
 }
@@ -26,10 +28,24 @@ class Agua <<LEAF>> {
 class Tierra <<LEAF>> {
     + <<create>> Tierra(): Tierra
     + proporcionAgua(): Real
-    + propocionTierra(): Real
+    + proporcionTierra(): Real
     + igual(otra: Topografia): Boolean
     + esIgualAAgua(agua: Agua): Boolean
     + esIgualATierra(tierra: Tierra): Boolean
+    + esIgualAPantano(pantano: Pantano): Boolean
+    + esIgualAMixta(mixta: Mixta): Boolean
+    + equals(objeto: Object): Boolean
+}
+
+
+class Pantano <<LEAF>> {
+    + <<create>> Tierra(): Tierra
+    + proporcionAgua(): Real
+    + proporcionTierra(): Real
+    + igual(otra: Topografia): Boolean
+    + esIgualAAgua(agua: Agua): Boolean
+    + esIgualATierra(tierra: Tierra): Boolean
+    + esIgualAPantano(pantano: Pantano): Boolean
     + esIgualAMixta(mixta: Mixta): Boolean
     + equals(objeto: Object): Boolean
 }
@@ -38,10 +54,11 @@ class Tierra <<LEAF>> {
 class Mixta <<COMPOSITE>> {
     + <<create>> Mixta(componente1: Topografia, componente2: Topografia, componente3: Topografia, componente4: Topografia): Mixta
     + proporcionAgua(): Real
-    + propocionTierra(): Real
+    + proporcionTierra(): Real
     + igual(otra: Topografia): Boolean
     + esIgualAAgua(agua: Agua): Boolean
     + esIgualATierra(tierra: Tierra): Boolean
+    + esIgualAPantano(pantano: Pantano): Boolean
     + esIgualAMixta(mixta: Mixta): Boolean
     + equals(objeto: Object): Boolean
 }
@@ -52,6 +69,7 @@ Topografia --> Mixta : " - componentes (4)"
 
 class Agua implements Topografia
 class Tierra implements Topografia
+class Pantano implements Topografia
 class Mixta implements Topografia
 
 @enduml
