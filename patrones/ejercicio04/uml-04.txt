@@ -1,0 +1,37 @@
+@startuml
+
+interface Topografia <<COMPONENT>> {
+    + getProporcionAgua(): Real
+    + esIgualAMixta(otra: Mixta): Boolean
+    + esIgualAHoja(otra: Hoja): Boolean
+    + equals(topo: Object): Boolean
+}
+
+
+class Hoja <<LEAF>> {
+    - proporcionAgua: Real
+
+    + <<create>> Hoja(proporcionAgua: Real): Hoja
+    + getProporcionAgua(): Real
+    + esIgualAMixta(otra: Mixta): Boolean
+    + esIgualAHoja(otra: Hoja): Boolean
+    + equals(topo: Object): Boolean
+}
+
+
+class Mixta <<COMPOSITE>> {
+    + <<create>> Mixta(componente1: Topografia, componente2: Topografia, componente3: Topografia, componente4: Topografia): Mixta
+    + getProporcionAgua(): Real
+    + esIgualAMixta(otra: Mixta): Boolean
+    + esIgualAHoja(otra: Hoja): Boolean
+    + equals(obj: Object): Boolean
+}
+
+
+Topografia --> Mixta : " - componentes (4)"
+
+
+class Hoja implements Topografia
+class Mixta implements Topografia
+
+@enduml
